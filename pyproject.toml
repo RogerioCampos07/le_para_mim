@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "le-para-mim"
+version = "0.1.0"
+description = "Ler arquivos pdfs"
+authors = ["Rogerio Campos"]
+readme = "README.md"
+packages = [{include = "le_para_mim"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyttsx3 = "^2.90"
+pypdf2 = "^3.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
