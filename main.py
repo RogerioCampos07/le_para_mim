@@ -4,7 +4,7 @@ from tkinter import filedialog as fd
 from tkinter import messagebox
 import pyttsx3
 from PyPDF2 import PdfReader 
-from pygame import mixer 
+
 
 global engine
 
