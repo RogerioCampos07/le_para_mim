@@ -4,23 +4,25 @@ from tkinter import filedialog as fd
 from tkinter import messagebox
 import pyttsx3
 from PyPDF2 import PdfReader 
+from pygame import mixer 
 
 global engine
+
 engine = pyttsx3.init()
+
 
 def escolha():
     global filename
-
     filename = fd.askopenfilename(
         title='Open a file',
         initialdir='/',
         filetypes=(('PDFs','*.pdf'),
         ('All files', '*.*')))
-    nome = ttk.Label(janela,text=filename)
-    nome.grid(column=0,row=2,columnspan=2)
+    nome = ttk.Label(janela,text=f'Arquivo selecionado: {filename}')
+    nome.place(x=10,y=100)
+    print(type(filename))
     
-    
-    
+   
     
 def leitor():
     escolha_arquivo = filename
@@ -33,23 +35,24 @@ def leitor():
         engine.runAndWait()
     pdf_file.close()
     messagebox.showinfo("Aviso", "Texto lido")
+    
         
 
-
-
-
-
-
 janela = Tk()
-janela.geometry('600x400')
-lbesolha = ttk.Label(janela,text='Escolha um arquivo')
-btnescolha = ttk.Button(janela,text='Abrir',command=escolha)
-btnleitura = ttk.Button(janela,text='Play',command=leitor)
+janela.geometry('300x300')
+janela.title('lê para mim')
+frame_arquivo = ttk.LabelFrame(janela,relief='solid',text='Selecione um arquivo',padding=10,)
+frame_botoes = ttk.Frame(janela,relief='solid',padding=10)
+lbesolha = ttk.Label(frame_arquivo,text='Arquivo')
+btnescolha = ttk.Button(frame_arquivo,text='Abrir',command=escolha)
+btnleitura = ttk.Button(frame_botoes,text='Play',command=leitor)
 
 
+frame_arquivo.place(x=10,y=40)
 lbesolha.grid(column=0,row=0)
 btnescolha.grid(column=1,row=0)
-btnleitura.grid(column=0,row=1)
+frame_botoes.place(x=10,y=170)
+btnleitura.grid(column=0,row=0)
 
 
 janela.mainloop()
