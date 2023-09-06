@@ -31,7 +31,7 @@ def leitor():
     voices = engine.getProperty('voices') 
     engine.setProperty('voice',voices[58].id)
     rate = engine.getProperty('rate')
-    engine.setProperty('rate',rate-30)
+    engine.setProperty('rate',rate-25)
     for page_num in range(len(pdf_reader.pages)):
         text = pdf_reader.pages[page_num].extract_text()
         engine.say(text)
