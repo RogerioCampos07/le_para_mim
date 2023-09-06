@@ -2,13 +2,9 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog as fd
 from tkinter import messagebox
-import pyttsx3
+import gtts
 from PyPDF2 import PdfReader 
 
-
-global engine
-
-engine = pyttsx3.init()
 
 
 def escolha():
@@ -28,15 +24,12 @@ def leitor():
     escolha_arquivo = filename
     pdf_file = open(escolha_arquivo,'rb')
     pdf_reader = PdfReader(pdf_file)
-    voices = engine.getProperty('voices') 
-    engine.setProperty('voice',voices[58].id)
-    rate = engine.getProperty('rate')
-    engine.setProperty('rate',rate-25)
     for page_num in range(len(pdf_reader.pages)):
         text = pdf_reader.pages[page_num].extract_text()
-        engine.say(text)
-        engine.runAndWait()
+        g = gtts.gTTS(text,lang='pt-br')
+        g.save('texto.mp3')
     pdf_file.close()
+    
     messagebox.showinfo("Aviso", "Texto lido")
     
         
