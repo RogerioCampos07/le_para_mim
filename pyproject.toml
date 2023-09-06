@@ -11,6 +11,7 @@ python = "^3.11"
 pyttsx3 = "^2.90"
 pypdf2 = "^3.0.1"
 pygame = "^2.4.0"
+gtts = "^2.3.2"
 
 
 [build-system]
