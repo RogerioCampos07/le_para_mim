@@ -2,7 +2,7 @@
 name = "le-para-mim"
 version = "0.1.0"
 description = "Ler arquivos pdfs"
-authors = ["Rogerio Campos"]
+authors = ["Rogerio Campos <rogerio.campos07@gmail.com>"]
 readme = "README.md"
 packages = [{include = "le_para_mim"}]
 
